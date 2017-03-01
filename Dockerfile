@@ -12,8 +12,8 @@ ENV KEYSTONE_DB_PASSWD passw0rd
 LABEL version="$KEYSTONE_VERSION"
 LABEL description="Openstack Keystone Docker Image"
 
-RUN apt-get -y update
-
+#RUN apt-get -y update
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
 
 
