@@ -13,18 +13,20 @@ LABEL version="$KEYSTONE_VERSION"
 LABEL description="Openstack Keystone Docker Image"
 
 RUN apt-get -y update
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository cloud-archive:newton -y
-RUN apt-get -y update
-RUN apt-get install python-openstackclient mysql-client  -y
-RUN apt-get -y clean
+
+
+
 
 RUN export DEBIAN_FRONTEND="noninteractive" \
     && echo "mysql-server mysql-server/root_password password $KEYSTONE_DB_ROOT_PASSWD" | debconf-set-selections \
     && echo "mysql-server mysql-server/root_password_again password $KEYSTONE_DB_ROOT_PASSWD" | debconf-set-selections \
     && apt-get -y update && apt-get install -y mysql-server && apt-get -y clean
 
-
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository cloud-archive:newton -y
+RUN apt-get -y update
+RUN apt-get install python-openstackclient mysql-client  -y
+RUN apt-get -y clean
 
 RUN apt-get install -y keystone
 
