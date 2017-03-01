@@ -1,4 +1,5 @@
-FROM python:2.7.12
+#FROM python:2.7.12
+FROM ubuntu:latest
 MAINTAINER = Joy Rahman <joyrahman@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
