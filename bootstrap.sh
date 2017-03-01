@@ -75,4 +75,10 @@ EOF
 echo "ServerName $HOSTNAME" >> /etc/apache2/apache2.conf
 service apache2 restart
 rm -f /var/lib/keystone/keystone.db
-/bin/bash 
+
+
+# ensite keystone and start apache2
+#a2ensite keystone
+apache2ctl -D FOREGROUND
+
+
