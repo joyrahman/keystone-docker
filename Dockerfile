@@ -1,5 +1,6 @@
 FROM python:2.7.12
 MAINTAINER = Joy Rahman <joyrahman@gmail.com>
+ENV DEBIAN_FRONTEND noninteractive
 
 #shall mention base?
 
@@ -39,6 +40,7 @@ COPY ./etc/keystone.conf /etc/keystone/keystone.conf
 COPY keystone.sql /keystone.sql  
 COPY bootstrap.sh /bootstrap.sh
 COPY ./keystone.wsgi.conf /etc/apache2/sites-available/keystone.conf
+ENV DEBIAN_FRONTEND teletype
 
 WORKDIR /root
 CMD sh -x /bootstrap.sh
