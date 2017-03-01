@@ -15,6 +15,8 @@ LABEL description="Openstack Keystone Docker Image"
 
 #RUN apt-get -y update
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get install -y apt-utils
+
 
 
 
