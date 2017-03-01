@@ -2,6 +2,10 @@
 
 HTTP="http"
 KEYSTONE_DB_HOST="localhost"
+HOSTNAME="controller"
+echo "127.0.0.1 $HOSTNAME" >> /etc/hosts
+
+
 
 service mysql restart
 cat > ~/.my.cnf  <<EOF 
@@ -42,7 +46,8 @@ sed -i "s/KEYSTONE_DB_HOST/$KEYSTONE_DB_HOST/g" /etc/keystone/keystone.conf
 #  Populate keystone database & Bootstrap keystone
 su -s /bin/sh -c "keystone-manage db_sync" keystone
 
-HOSTNAME="controller"
+keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
+keystone-manage credential_setup --keystone-user keystone --keystone-group keystone
 keystone-manage bootstrap --bootstrap-username admin \
         --bootstrap-password $KEYSTONE_ADMIN_PASSWORD \
         --bootstrap-project-name admin \
