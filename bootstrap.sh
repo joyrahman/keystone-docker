@@ -79,12 +79,12 @@ rm -f /var/lib/keystone/keystone.db
 
 # ensite keystone and start apache2
 #a2ensite keystone
-#apache2ctl -D FOREGROUND
+apache2ctl -D FOREGROUND
 
-if [[ $1 == "-d" ]]; then
-  while true; do sleep 1000; done
-fi
+# if [[ $1 == "-d" ]]; then
+#   while true; do sleep 1000; done
+# fi
 
-if [[ $1 == "-bash" ]]; then
-  /bin/bash
-fi
+# if [[ $1 == "-bash" ]]; then
+#   /bin/bash
+# fi
