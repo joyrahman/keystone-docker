@@ -40,9 +40,8 @@ WORKDIR /keystone
 #
 COPY ./etc/keystone.conf /etc/keystone/keystone.conf
 #complete these two files
-COPY keystone.sql /keystone.sql  
-COPY bootstrap.sh /bootstrap.sh
-COPY ./keystone.wsgi.conf /etc/apache2/sites-available/keystone.conf
+COPY keystone.sql /root/keystone.sql  
+COPY bootstrap.sh /root/bootstrap.sh
 ENV DEBIAN_FRONTEND teletype
 RUN chown root:root /root/bootstrap.sh
 RUN chmod 700 /root/bootstrap.sh
