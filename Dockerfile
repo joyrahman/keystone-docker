@@ -46,6 +46,7 @@ ENV DEBIAN_FRONTEND teletype
 RUN chown root:root /root/bootstrap.sh
 RUN chmod 700 /root/bootstrap.sh
 WORKDIR /root
-CMD sh -x /root/bootstrap.sh
+#CMD sh -x /root/bootstrap.sh
 #CMD ["/root/bootstrap.sh", "-d"]
 
+CMD ["/root/bootstrap.sh", "-bash"]
