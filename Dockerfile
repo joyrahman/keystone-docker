@@ -44,6 +44,9 @@ COPY keystone.sql /keystone.sql
 COPY bootstrap.sh /bootstrap.sh
 COPY ./keystone.wsgi.conf /etc/apache2/sites-available/keystone.conf
 ENV DEBIAN_FRONTEND teletype
-
+RUN chown root:root /root/bootstrap.sh
+RUN chmod 700 /root/bootstrap.sh
 WORKDIR /root
-CMD sh -x /bootstrap.sh
+#CMD sh -x /bootstrap.sh
+CMD ["/root/bootstrap.sh", "-d"]
+
